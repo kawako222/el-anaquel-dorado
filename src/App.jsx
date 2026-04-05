@@ -223,8 +223,8 @@ export default function App() {
               <h4>Contacto</h4>
               <ul>
                 <li><a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Facebook</a></li>
+                {/*<li><a href="#">Instagram</a></li>*/}
+                {/*<li><a href="#">Facebook</a></li>*/}
               </ul>
             </div>
           </div>
