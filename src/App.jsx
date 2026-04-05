@@ -25,7 +25,7 @@ const categories = [
   { id: "11", title: "Infantil",                desc: "Para los más pequeños.",             img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=75&auto=format" },
   { id: "12", title: "Superación Personal",     desc: "Crecimiento y bienestar.",           img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=75&auto=format" },
 ];
-
+{/*
 const bookImages = [
   "https://images.unsplash.com/photo-1531072901881-d644216d4bf9?w=300&q=70&auto=format",
   "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=300&q=70&auto=format",
@@ -38,7 +38,7 @@ const bookImages = [
   "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=300&q=70&auto=format",
   "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=300&q=70&auto=format",
 ];
-
+*/}
 // ==========================================
 // COMPONENTES
 // ==========================================
@@ -150,7 +150,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── VITRINA DE LIBROS ── */}
+      {/* ── VITRINA DE LIBROS ── 
       <div className="books-row">
         <p className="books-row-label">Títulos recientes</p>
         <div className="books-track">
@@ -161,7 +161,8 @@ export default function App() {
           ))}
         </div>
       </div>
-
+      */}
+      
       {/* ── SERVICIOS ── */}
       <section className="services-section">
         <div className="service-block dark" id="buscador">
