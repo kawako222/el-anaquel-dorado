@@ -4,7 +4,6 @@ const allImages = import.meta.glob(
   { eager: true }
 );
 
-// Convertir el objeto plano en un mapa por categoría:
 
 export function buildCatalog() {
   const catalog = {};
@@ -15,12 +14,14 @@ export function buildCatalog() {
     const parts = publicPath.split('/');
     if (parts.length < 4) continue;
 
-    const category = parts[2];           
-    const filename  = parts[parts.length - 1];
+    const category = parts[2];           // "manga"
+    const filename  = parts[parts.length - 1]; // "Ranma .jpeg"
 
     const productName = filename
-      .replace(/\.[^/.]+$/, '')          
-      .trim();
+      .replace(/\.[^/.]+$/, '')          // quita extensión
+      .trim()
+      .toLowerCase()                     // todo a minúsculas primero
+      .replace(/(?:^|\s)\S/g, (c) => c.toUpperCase()); // primera letra de cada palabra
 
     if (!catalog[category]) catalog[category] = [];
     catalog[category].push({ src: publicPath, name: productName });
@@ -29,8 +30,8 @@ export function buildCatalog() {
   return catalog;
 }
 
-// Catálogo listo
+// Catálogo listo para consumir en cualquier componente
 export const catalog = buildCatalog();
 
-// Lista de categorías disponibles 
+// Lista de categorías disponibles (para menú/nav)
 export const categoryList = Object.keys(catalog).sort();
