@@ -7,6 +7,7 @@ const CATEGORY_LABELS = {
   'academicos e investigacion literaria': 'Académicos e Investigación',
   'antologias de novela':                 'Antologías de Novela',
   'arte':                                 'Arte y Pintura',
+  'autoayuda':                            'Autoayuda',
   'clasicos':                             'Clásicos',
   'clasicos coleccion':                   'Clásicos de Colección',
   'feminismos':                           'Feminismos',
