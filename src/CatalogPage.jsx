@@ -1,4 +1,4 @@
-
+// CatalogPage.jsx
 import { useState } from 'react';
 import { categoryList } from './imageMap';
 import BookGrid from './BookGrid';
@@ -19,7 +19,10 @@ const CATEGORY_LABELS = {
   'poesia de comunidades originarias':    'Poesía Originaria',
 };
 
-const label = (slug) => CATEGORY_LABELS[slug] ?? slug;
+const toTitleCase = (str) =>
+  str.replace(/(?:^|\s)\S/g, (c) => c.toUpperCase());
+
+const label = (slug) => CATEGORY_LABELS[slug] ?? toTitleCase(slug);
 
 export default function CatalogPage() {
   const [active, setActive] = useState(categoryList[0] ?? '');

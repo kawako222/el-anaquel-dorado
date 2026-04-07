@@ -1,19 +1,20 @@
-
+// BookGrid.jsx
 import { useMemo } from 'react';
 import { catalog } from './imageMap';
 
-const WHATSAPP_NUMBER = "5213320479915"; // número
+const WHATSAPP_NUMBER = "5213320479915";
 
 const toWhatsApp = (productName, category) => {
   const msg = `Hola El Anaquel Dorado, vengo de la página web. Me interesa el libro *"${productName}"* de la sección de *${category}*. ¿Está disponible?`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 };
 
-// Etiquetas legibles para cada slug de carpeta
+// Etiquetas legibles para slugs conocidos (con tildes y formato especial)
 const CATEGORY_LABELS = {
   'academicos e investigacion literaria': 'Académicos e Investigación Literaria',
   'antologias de novela':                 'Antologías de Novela',
   'arte':                                 'Arte y Pintura',
+  'autoayuda':                            'Autoayuda',
   'clasicos':                             'Clásicos',
   'clasicos coleccion':                   'Clásicos de Colección',
   'feminismos':                           'Feminismos',
@@ -25,9 +26,13 @@ const CATEGORY_LABELS = {
   'poesia de comunidades originarias':    'Poesía de Comunidades Originarias',
 };
 
-const label = (slug) => CATEGORY_LABELS[slug] ?? slug;
+// Fallback automático: si no está en el diccionario, aplica Title Case
+const toTitleCase = (str) =>
+  str.replace(/(?:^|\s)\S/g, (c) => c.toUpperCase());
 
-// ── Tarjeta individual ──────────────────────────────────────────────────────
+const label = (slug) => CATEGORY_LABELS[slug] ?? toTitleCase(slug);
+
+// ── Tarjeta individual ────────────────────────────────────────────────────────
 function BookCard({ src, name, category }) {
   return (
     <a
@@ -48,7 +53,7 @@ function BookCard({ src, name, category }) {
   );
 }
 
-// ── Grid principal ──────────────────────────────────────────────────────────
+// ── Grid principal ────────────────────────────────────────────────────────────
 export default function BookGrid({ category }) {
   const books = useMemo(() => catalog[category] ?? [], [category]);
 
